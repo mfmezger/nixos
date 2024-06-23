@@ -99,12 +99,12 @@
       yazi
       fastfetch
       atuin
-      bat
-      tealdeer
+
       oh-my-zsh
       zenith
+      gh
       #       cyberduck
-      obsidian
+      #obsidian
       neovim
       pyenv
       shotcut

@@ -31,16 +31,10 @@
     zip
     xz
     unzip
-    p7zip
-
+    bat
+    tealdeer
     # utils
     eza # A modern replacement for ‘ls’
-
-    # it provides the command `nom` works just like `nix`
-    # with more details log output
-    nix-output-monitor
-
-    bptop  # replacement of htop/nmon
   ];
 
   # basic configuration of git, please change to your own
@@ -50,17 +44,17 @@
     userEmail = "marc.mezger@gmail.com";
   };
 
-  # starship - an customizable prompt for any shell
-  programs.starship = {
-    enable = true;
-    # custom settings
-    settings = {
-      add_newline = false;
-      aws.disabled = true;
-      gcloud.disabled = true;
-      line_break.disabled = true;
-    };
-  };
+  # # starship - an customizable prompt for any shell
+  # programs.starship = {
+  #   enable = true;
+  #   # custom settings
+  #   settings = {
+  #     add_newline = false;
+  #     aws.disabled = true;
+  #     gcloud.disabled = true;
+  #     line_break.disabled = true;
+  #   };
+  # };
 
   home.stateVersion = "23.11";
 
