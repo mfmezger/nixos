@@ -117,7 +117,7 @@
   };
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # Install firefox.
-  programs.firefox.enable = true;
+  programs.firefox.enable = false;
   programs.zsh.enable = true;
   # fonts.packages = with pkgs; [
   #   (nerdfonts.override { fonts = [ "CaskaydiaCove" "CaskaydiaCoveMono" ]; })
