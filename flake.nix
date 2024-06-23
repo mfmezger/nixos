@@ -3,7 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    
+    hyprland-plugins = {
+      url="github:hyperwm/hyprland-plugins";
+      inputs.hyprland.follow = "hyprland"
+    };
+    
     # home-manager, used for managing user configuration
+
+
+
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       # The `follows` keyword in inputs is used for inheritance.

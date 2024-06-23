@@ -115,13 +115,13 @@
       ollama
     ];
   };
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   # Install firefox.
   programs.firefox.enable = true;
   programs.zsh.enable = true;
-# fonts.packages = with pkgs; [
-#   (nerdfonts.override { fonts = [ "CaskaydiaCove" "CaskaydiaCoveMono" ]; })
-# ];
+  # fonts.packages = with pkgs; [
+  #   (nerdfonts.override { fonts = [ "CaskaydiaCove" "CaskaydiaCoveMono" ]; })
+  # ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -149,6 +149,7 @@
     enable = true;
     xwayland.enable = true;
   };
+  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   # xdg.portal.enable = true;
   environment.sessionVariables = {
     #If your cursor becomes invisible

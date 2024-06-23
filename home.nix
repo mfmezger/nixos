@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.username = "mfm";
   home.homeDirectory = "/home/mfm";
 
@@ -20,10 +22,10 @@
   # '';
 
   # set cursor size and dpi for 4k monitor
-#   xresources.properties = {
-#     "Xcursor.size" = 16;
-#     "Xft.dpi" = 172;
-#   };
+  #   xresources.properties = {
+  #     "Xcursor.size" = 16;
+  #     "Xft.dpi" = 172;
+  #   };
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -55,6 +57,31 @@
   #     line_break.disabled = true;
   #   };
   # };
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+
+    plugins = [
+      inputs.hyprland-plugins.packages."${pkgs.system}".borders-plus-plus
+    ];
+
+    settings = {
+      "plugin:borders-plus-plus" = {
+        add_borders = 1; # 0 - 9
+
+        # you can add up to 9 borders
+        "col.border_1" = "rgb(ffffff)";
+        "col.border_2" = "rgb(2222ff)";
+
+        # -1 means "default" as in the one defined in general:border_size
+        border_size_1 = 10;
+        border_size_2 = -1;
+
+        # makes outer edges match rounding of the parent. Turn on / off to better understand. Default = on.
+        natural_rounding = "yes";
+      };
+    };
+  };
 
   home.stateVersion = "23.11";
 
