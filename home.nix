@@ -37,7 +37,7 @@
     tealdeer
     eza
     wofi
-    
+    spacedrive
   ];
 
   # basic configuration of git, please change to your own
@@ -80,10 +80,10 @@
       bind = [
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 
-        "$mainMod, Return, exec, alacritty"
+        "$mainMod, Return, exec, kitty"
         "$mainMod, Q, killactive,"
         "$mainMod, M, exit,"
-        "$mainMod, E, exec, dolphin"
+        "$mainMod, E, exec, files"
         "$mainMod, F, fullscreen,"
         "$mainMod, D, exec, wofi --show drun"
         "$mainMod, P, pseudo, # dwindle"
