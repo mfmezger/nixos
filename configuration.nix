@@ -112,6 +112,7 @@
     git
     i3
     egl-wayland
+    home-manager
     pkgs.waybar
     pkgs.dunst
     kitty

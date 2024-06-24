@@ -19,9 +19,15 @@
   #     "Xcursor.size" = 16;
   #     "Xft.dpi" = 172;
   #   };
-
+  services = {
+    screen-locker = {
+      enable = true;
+      inactiveInterval = 10;
+      lockCmd = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 10 15";
+    };
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+      i3lock-fancy-rapid
     zip
     xz
     unzip
@@ -43,52 +49,55 @@
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
-      aaron-bond.better-comments
-      bierner.github-markdown-preview
-      bierner.markdown-checkbox
-      bierner.markdown-mermaid
-      bierner.markdown-preview-github-styles
-      charliermarsh.ruff
-      codezombiech.gitignore
-      davidanson.vscode-markdownlint
-      eamodio.gitlens
-      esbenp.prettier-vscode
+      # aaron-bond.better-comments
+      # bierner.github-markdown-preview
+      # bierner.markdown-checkbox
+      # bierner.markdown-mermaid
+      # bierner.markdown-preview-github-styles
+      # charliermarsh.ruff
+      # clemenspeters.format-json
+      # codezombiech.gitignore
+      # davidanson.vscode-markdownlint
+      # doggy8088.quicktype-refresh
+      # eamodio.gitlens
+      # esbenp.prettier-vscode
       github.copilot
       github.copilot-chat
-      grapecity.gc-excelviewer
-      gruntfuggly.todo-tree
-      hbenl.vscode-test-explorer
-      khaeransori.json2csv
-      littlefoxteam.vscode-python-test-adapter
-      mechatroner.rainbow-csv
-      michelemelluso.gitignore
-      ms-python.black-formatter
-      ms-python.debugpy
-      ms-python.isort
-      ms-python.python
-      ms-vscode-remote.remote-containers
-      ms-vscode-remote.remote-ssh
-      ms-vscode-remote.remote-ssh-edit
-      ms-vscode.remote-explorer
-      ms-vscode.test-adapter-converter
-      nextfaze.json-parse-stringify
-      njpwerner.autodocstring
-      oderwat.indent-rainbow
-      penumbratheme.penumbra
-      phplasma.csv-to-table
-      randomfractalsinc.vscode-data-preview
-      redhat.vscode-yaml
-      rust-lang.rust-analyzer
-      searking.preview-vscode
-      sonarsource.sonarlint-vscode
-      sourcery.sourcery
-      tamasfe.even-better-toml
-      tomoki1207.pdf
-      vadimcn.vscode-lldb
-      vscode-icons-team.vscode-icons
-      wholroyd.jinja
-      yzhang.markdown-all-in-one
-      zainchen.json
+      # grapecity.gc-excelviewer
+      # gruntfuggly.todo-tree
+      # hbenl.vscode-test-explorer
+      # janisdd.vscode-edit-csv
+      # khaeransori.json2csv
+      # littlefoxteam.vscode-python-test-adapter
+      # mechatroner.rainbow-csv
+      # michelemelluso.gitignore
+      # ms-python.black-formatter
+      # ms-python.debugpy
+      # ms-python.isort
+      # ms-python.python
+      # ms-vscode-remote.remote-containers
+      # ms-vscode-remote.remote-ssh
+      # ms-vscode-remote.remote-ssh-edit
+      # ms-vscode.remote-explorer
+      # ms-vscode.test-adapter-converter
+      # nextfaze.json-parse-stringify
+      # njpwerner.autodocstring
+      # oderwat.indent-rainbow
+      # penumbratheme.penumbra
+      # phplasma.csv-to-table
+      # randomfractalsinc.vscode-data-preview
+      # redhat.vscode-yaml
+      # rust-lang.rust-analyzer
+      # searking.preview-vscode
+      # sonarsource.sonarlint-vscode
+      # sourcery.sourcery
+      # tamasfe.even-better-toml
+      # tomoki1207.pdf
+      # vadimcn.vscode-lldb
+      # vscode-icons-team.vscode-icons
+      # wholroyd.jinja
+      # yzhang.markdown-all-in-one
+      # zainchen.json
     ];
   };
 
@@ -186,13 +195,6 @@
         # Brightness control
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%- "
         ", XF86MonBrightnessUp, exec, brightnessctl set +5% "
-
-        # Configuration files
-        ''$mainMod SHIFT, N, exec, alacritty -e sh -c "rb"''
-        ''$mainMod SHIFT, C, exec, alacritty -e sh -c "conf"''
-        ''$mainMod SHIFT, H, exec, alacritty -e sh -c "nvim ~/nix/home-manager/modules/wms/hyprland.nix"''
-        ''$mainMod SHIFT, W, exec, alacritty -e sh -c "nvim ~/nix/home-manager/modules/wms/waybar.nix''
-        '', Print, exec, grim -g "$(slurp)" - | swappy -f -''
 
         # Waybar
         "$mainMod, B, exec, pkill -SIGUSR1 waybar"
