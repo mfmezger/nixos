@@ -51,7 +51,6 @@
       charliermarsh.ruff
       codezombiech.gitignore
       davidanson.vscode-markdownlint
-      doggy8088.quicktype-refresh
       eamodio.gitlens
       esbenp.prettier-vscode
       github.copilot
