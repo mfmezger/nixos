@@ -58,7 +58,6 @@
       grapecity.gc-excelviewer
       gruntfuggly.todo-tree
       hbenl.vscode-test-explorer
-      janisdd.vscode-edit-csv
       khaeransori.json2csv
       littlefoxteam.vscode-python-test-adapter
       mechatroner.rainbow-csv
