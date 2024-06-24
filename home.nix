@@ -43,7 +43,7 @@
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
-      maaron-bond.better-comments
+      "maaron-bond.better-comments"
       bierner.github-markdown-preview
       bierner.markdown-checkbox
       bierner.markdown-mermaid
