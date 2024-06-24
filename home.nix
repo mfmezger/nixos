@@ -49,7 +49,6 @@
       bierner.markdown-mermaid
       bierner.markdown-preview-github-styles
       charliermarsh.ruff
-      clemenspeters.format-json
       codezombiech.gitignore
       davidanson.vscode-markdownlint
       doggy8088.quicktype-refresh
