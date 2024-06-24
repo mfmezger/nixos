@@ -74,7 +74,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
+fonts.fontconfig.enable = true;
   # USER ACCOUNT
   users.users.mfm = {
     isNormalUser = true;
@@ -99,6 +99,7 @@
       vscode
       alejandra
       ollama
+      (nerdfonts.override { fonts = ["CascadiaCode" "CascadiaMono" ]; })
     ];
   };
 

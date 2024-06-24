@@ -1,65 +1,52 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
-  #imports = [./hyprland.nix];
-  home.username = "mfm";
-  home.homeDirectory = "/home/mfm";
-
-  # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
-
-  # set cursor size and dpi for 4k monitor
-  #   xresources.properties = {
-  #     "Xcursor.size" = 16;
-  #     "Xft.dpi" = 172;
-  #   };
-  services = {
-    screen-locker = {
-      enable = true;
-      inactiveInterval = 10;
-      lockCmd = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 10 15";
-    };
-  };
-  
-  # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-      i3lock-fancy-rapid
-    zip
-    xz
-    unzip
-    bat
-    tealdeer
-    eza
-    wofi
-    
-  ];
-
-  # basic configuration of git, please change to your own
-  programs.git = {
-    enable = true;
-    userName = "Marc Fabian Mezger";
-    userEmail = "marc.mezger@gmail.com";
-  };
-
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscode;
-    extensions = with pkgs.vscode-extensions; [
-    ];
-  };
-
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
 
     settings = {
       "$mainMod" = "SUPER";
+
+      monitor = ",1920x1080@90,auto,1";
+
+      env = [
+        "XDG_CURRENT_DESKTOP,Hyprland"
+        "XDG_SESSION_TYPE,wayland"
+        "XDG_SESSION_DESKTOP,Hyprland"
+        "XCURSOR_SIZE,36"
+        "QT_QPA_PLATFORM,wayland"
+        "XDG_SCREENSHOTS_DIR,~/screens"
+      ];
+
+      debug = {
+        disable_logs = false;
+        enable_stdout_logs = true;
+      };
+
+      input = {
+        kb_layout = "de";
+        kb_variant = "lang";
+        kb_options = "grp:caps_toggle";
+
+        follow_mouse = 1;
+
+        touchpad = {
+          natural_scroll = false;
+        };
+
+        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+      };
+
+      general = {
+        gaps_in = 5;
+        gaps_out = 20;
+        border_size = 3;
+        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+        "col.inactive_border" = "rgba(595959aa)";
+
+        layout = "dwindle";
+
+        no_cursor_warps = false;
+      };
 
       decoration = {
         rounding = 10;
@@ -77,6 +64,60 @@
         "col.shadow" = "rgba(1a1a1aee)";
       };
 
+      animations = {
+        enabled = true;
+
+        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+        # bezier = "myBezier, 0.33, 0.82, 0.9, -0.08";
+
+        animation = [
+          "windows,     1, 7,  myBezier"
+          "windowsOut,  1, 7,  default, popin 80%"
+          "border,      1, 10, default"
+          "borderangle, 1, 8,  default"
+          "fade,        1, 7,  default"
+          "workspaces,  1, 6,  default"
+        ];
+      };
+
+      dwindle = {
+        pseudotile = true; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+        preserve_split = true; # you probably want this
+      };
+
+      master = {
+        new_is_master = true;
+      };
+
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_fingers = 3;
+        workspace_swipe_invert = false;
+        workspace_swipe_distance = 200;
+        workspace_swipe_forever = true;
+      };
+
+      misc = {
+        animate_manual_resizes = true;
+        animate_mouse_windowdragging = true;
+        enable_swallow = true;
+        render_ahead_of_time = false;
+        disable_hyprland_logo = true;
+      };
+
+      windowrule = [
+        "float, ^(imv)$"
+        "float, ^(mpv)$"
+      ];
+
+      exec-once = [
+        "swww init"
+        "swww img ~/Downloads/nixos-chan.png"
+        "waybar"
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
+      ];
+
       bind = [
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 
@@ -84,7 +125,7 @@
         "$mainMod, Q, killactive,"
         "$mainMod, M, exit,"
         "$mainMod, E, exec, dolphin"
-        "$mainMod, F, fullscreen,"
+        "$mainMod, F, togglefloating,"
         "$mainMod, D, exec, wofi --show drun"
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod, J, togglesplit, # dwindle"
@@ -149,6 +190,13 @@
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%- "
         ", XF86MonBrightnessUp, exec, brightnessctl set +5% "
 
+        # Configuration files
+        ''$mainMod SHIFT, N, exec, alacritty -e sh -c "rb"''
+        ''$mainMod SHIFT, C, exec, alacritty -e sh -c "conf"''
+        ''$mainMod SHIFT, H, exec, alacritty -e sh -c "nvim ~/nix/home-manager/modules/wms/hyprland.nix"''
+        ''$mainMod SHIFT, W, exec, alacritty -e sh -c "nvim ~/nix/home-manager/modules/wms/waybar.nix''
+        '', Print, exec, grim -g "$(slurp)" - | swappy -f -''
+
         # Waybar
         "$mainMod, B, exec, pkill -SIGUSR1 waybar"
         "$mainMod, W, exec, pkill -SIGUSR2 waybar"
@@ -164,11 +212,4 @@
       ];
     };
   };
-
-
-
-  home.stateVersion = "23.11";
-
-  # Let home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
