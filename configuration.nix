@@ -38,7 +38,7 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
 
   # NVIDIA
   services.xserver.videoDrivers = ["nvidia"];
@@ -50,8 +50,8 @@
   hardware.nvidia.nvidiaSettings = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = false;
+  services.xserver.desktopManager.gnome.enable = false;
 
   # Configure keymap in X11
   services.xserver = {
@@ -74,7 +74,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-fonts.fontconfig.enable = true;
+  fonts.fontconfig.enable = true;
   # USER ACCOUNT
   users.users.mfm = {
     isNormalUser = true;
@@ -99,7 +99,7 @@ fonts.fontconfig.enable = true;
       vscode
       alejandra
       ollama
-      (nerdfonts.override { fonts = ["CascadiaCode" "CascadiaMono" ]; })
+      (nerdfonts.override {fonts = ["CascadiaCode" "CascadiaMono"];})
     ];
   };
 

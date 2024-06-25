@@ -1,3 +1,4 @@
+l
 {
   config,
   pkgs,
@@ -26,10 +27,10 @@
       lockCmd = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 10 15";
     };
   };
-  
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-      i3lock-fancy-rapid
+    i3lock-fancy-rapid
     zip
     xz
     unzip
@@ -74,12 +75,12 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    
+
     #
     settings = {
       "$mainMod" = "SUPER";
-monitor ="DP-1,2560x1440@144,auto,1";
-#monitor="HDMI-1, 1920x1080, 2560x0, 1";
+      monitor = "DP-1,2560x1440@144,auto,1";
+      #monitor="HDMI-1, 1920x1080, 2560x0, 1";
       decoration = {
         rounding = 10;
 
@@ -96,7 +97,7 @@ monitor ="DP-1,2560x1440@144,auto,1";
         "col.shadow" = "rgba(1a1a1aee)";
       };
 
-      bind = [
+      bindm = [
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 
         "$mainMod, Return, exec, kitty"
@@ -104,7 +105,7 @@ monitor ="DP-1,2560x1440@144,auto,1";
         "$mainMod, M, exit,"
         "$mainMod, E, exec, files"
         "$mainMod, F, fullscreen,"
-        "$mainMod, D, exec, wofi --show drun"
+        "$mainMod, D, exec, rofi-wayland"
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod, J, togglesplit, # dwindle"
 
@@ -177,14 +178,12 @@ monitor ="DP-1,2560x1440@144,auto,1";
       ];
 
       # Move/resize windows with mainMod + LMB/RMB and dragging
-      bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
-      ];
+      # bindm = [
+      #   "$mainMod, mouse:272, movewindow"
+      #   "$mainMod, mouse:273, resizewindow"
+      # ];
     };
   };
-
-
 
   home.stateVersion = "23.11";
 
