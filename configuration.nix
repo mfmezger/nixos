@@ -55,8 +55,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    xkb.layout = "us";
-    xkb.variant = "eu";
+    xkb.layout = "eu";
+    xkb.variant = "";
   };
 
   # Configure console keymap
