@@ -35,23 +35,6 @@
     extensions = with pkgs.vscode-extensions; [
     ];
   };
-  # monitors = [
-  #   {
-  #     name = "DP-1";
-  #     width = 2560;
-  #     height = 1080;
-  #     x = 0;
-  #     workspace = "1";
-  #     primary = true;
-  #   }
-  #   {
-  #     name = "DP-2";
-  #     width = 1920;
-  #     height = 1080;
-  #     x = 2560;
-  #     workspace = "2";
-  #   }
-  # ];
 
   wayland.windowManager.hyprland = {
     enable = true;
