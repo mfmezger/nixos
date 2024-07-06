@@ -3,22 +3,9 @@
   pkgs,
   ...
 }: {
-  #imports = [./hyprland.nix];
   home.username = "mfm";
   home.homeDirectory = "/home/mfm";
 
-  # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
-
-  # set cursor size and dpi for 4k monitor
-  #   xresources.properties = {
-  #     "Xcursor.size" = 16;
-  #     "Xft.dpi" = 172;
-  #   };
   services = {
     screen-locker = {
       enable = true;
@@ -30,12 +17,7 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     i3lock-fancy-rapid
-    zip
-    xz
-    unzip
-    bat
-    tealdeer
-    eza
+
     wofi
     spacedrive
 ];
