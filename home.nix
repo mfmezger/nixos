@@ -95,7 +95,10 @@
         shadow_render_power = 3;
         "col.shadow" = "rgba(1a1a1aee)";
       };
-
+      input {
+    kb_layout=de,eu
+    kb_options=grp:caps_toggle
+};
       bindm = [
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 
