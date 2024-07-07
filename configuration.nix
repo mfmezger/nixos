@@ -60,7 +60,7 @@
   };
 
   # Configure console keymap
-  console.keyMap = "de";
+  #console.keyMap = "eu";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -74,7 +74,10 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+
   fonts.fontconfig.enable = true;
+
   # USER ACCOUNT
   users.users.mfm = {
     isNormalUser = true;
@@ -82,12 +85,12 @@
     shell = pkgs.zsh;
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    zip
-    xz
-    unzip
-    bat
-    tealdeer
-    eza
+      zip
+      xz
+      unzip
+      bat
+      tealdeer
+      eza
       brave
       yazi
       fastfetch

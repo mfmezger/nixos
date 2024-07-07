@@ -17,10 +17,8 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     i3lock-fancy-rapid
-
     wofi
-    spacedrive
-];
+  ];
 
   # basic configuration of git, please change to your own
   programs.git = {
@@ -43,7 +41,7 @@
     #
     settings = {
       "$mainMod" = "SUPER";
-      monitor = "DP-1,2560x1440@144,auto,1";
+      #monitor = "DP-1,2560x1440@144,auto,1";
       #monitor="HDMI-1, 1920x1080, 2560x0, 1";
       decoration = {
         rounding = 10;
@@ -60,12 +58,12 @@
         shadow_render_power = 3;
         "col.shadow" = "rgba(1a1a1aee)";
       };
-      input {
-    kb_layout=de,eu
-    kb_options=grp:caps_toggle
-};
-      bindm = [
-        "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+      #   input {
+      # kb_layout=de,eu
+      # kb_options=grp:caps_toggle
+      #   };
+      bind = [
+        "$mainMod, V, exec, wofi"
 
         "$mainMod, Return, exec, kitty"
         "$mainMod, Q, killactive,"
@@ -127,9 +125,7 @@
         # Waybar
         "$mainMod, B, exec, pkill -SIGUSR1 waybar"
         "$mainMod, W, exec, pkill -SIGUSR2 waybar"
-
       ];
-
     };
   };
 
