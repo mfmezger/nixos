@@ -3,22 +3,9 @@
   pkgs,
   ...
 }: {
-  #imports = [./hyprland.nix];
   home.username = "mfm";
   home.homeDirectory = "/home/mfm";
 
-  # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
-
-  # set cursor size and dpi for 4k monitor
-  #   xresources.properties = {
-  #     "Xcursor.size" = 16;
-  #     "Xft.dpi" = 172;
-  #   };
   services = {
     screen-locker = {
       enable = true;
@@ -30,15 +17,10 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     i3lock-fancy-rapid
-    zip
-    xz
-    unzip
-    bat
-    tealdeer
-    eza
+
     wofi
     spacedrive
-  ];
+];
 
   # basic configuration of git, please change to your own
   programs.git = {
@@ -53,23 +35,6 @@
     extensions = with pkgs.vscode-extensions; [
     ];
   };
-  # monitors = [
-  #   {
-  #     name = "DP-1";
-  #     width = 2560;
-  #     height = 1080;
-  #     x = 0;
-  #     workspace = "1";
-  #     primary = true;
-  #   }
-  #   {
-  #     name = "DP-2";
-  #     width = 1920;
-  #     height = 1080;
-  #     x = 2560;
-  #     workspace = "2";
-  #   }
-  # ];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -95,7 +60,10 @@
         shadow_render_power = 3;
         "col.shadow" = "rgba(1a1a1aee)";
       };
-
+      input {
+    kb_layout=de,eu
+    kb_options=grp:caps_toggle
+};
       bindm = [
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 
@@ -150,37 +118,18 @@
         "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
         "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
-        # Scroll through existing workspaces with mainMod + scroll
-        "$mainMod, mouse_down, workspace, e+1"
-        "$mainMod, mouse_up, workspace, e-1"
-
-        # Keyboard backlight
-        "$mainMod, F3, exec, brightnessctl -d *::kbd_backlight set +33%"
-        "$mainMod, F2, exec, brightnessctl -d *::kbd_backlight set 33%-"
-
         # Volume and Media Control
         ", XF86AudioRaiseVolume, exec, pamixer -i 5 "
         ", XF86AudioLowerVolume, exec, pamixer -d 5 "
         ", XF86AudioMute, exec, pamixer -t"
         ", XF86AudioMicMute, exec, pamixer --default-source -m"
 
-        # Brightness control
-        ", XF86MonBrightnessDown, exec, brightnessctl set 5%- "
-        ", XF86MonBrightnessUp, exec, brightnessctl set +5% "
-
         # Waybar
         "$mainMod, B, exec, pkill -SIGUSR1 waybar"
         "$mainMod, W, exec, pkill -SIGUSR2 waybar"
 
-        # Disable all effects
-        "$mainMod Shift, G, exec, ~/.config/hypr/gamemode.sh "
       ];
 
-      # Move/resize windows with mainMod + LMB/RMB and dragging
-      # bindm = [
-      #   "$mainMod, mouse:272, movewindow"
-      #   "$mainMod, mouse:273, resizewindow"
-      # ];
     };
   };
 

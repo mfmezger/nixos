@@ -82,6 +82,12 @@
     shell = pkgs.zsh;
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
+    zip
+    xz
+    unzip
+    bat
+    tealdeer
+    eza
       brave
       yazi
       fastfetch
