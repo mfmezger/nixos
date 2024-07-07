@@ -103,7 +103,6 @@
       neovim
       pyenv
       shotcut
-      pkgs.waybar
       htop
       vscode
       alejandra
@@ -120,21 +119,15 @@
 
   environment.systemPackages = with pkgs; [
     git
-    i3
+    # i3
     egl-wayland
     home-manager
-    pkgs.waybar
     pkgs.dunst
     kitty
     firefox-wayland
     rofi-wayland
     libnotify
     swww
-    (
-      pkgs.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-      })
-    )
   ];
   programs.hyprland = {
     enable = true;

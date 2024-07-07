@@ -33,11 +33,12 @@
     extensions = with pkgs.vscode-extensions; [
     ];
   };
-
+  programs.waybar = {
+    enable = true;
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-
     #
     settings = {
       "$mainMod" = "SUPER";
@@ -58,12 +59,16 @@
         shadow_render_power = 3;
         "col.shadow" = "rgba(1a1a1aee)";
       };
-      #   input {
-      # kb_layout=de,eu
-      # kb_options=grp:caps_toggle
-      #   };
+
+      exec-once = ["waybar"];
+
+        input = {
+      kb_layout="eu,de";
+      kb_options="grp:caps_toggle";
+        };
+
       bind = [
-        "$mainMod, V, exec, wofi"
+        "$mainMod, V, exec, rofi -show drun"
 
         "$mainMod, Return, exec, kitty"
         "$mainMod, Q, killactive,"
