@@ -27,6 +27,21 @@
     userEmail = "marc.mezger@gmail.com";
   };
 
+  programs.starship = {
+    enable = true;
+    # Configuration written to ~/.config/starship.toml
+    settings = {
+      add_newline = false;
+
+      # character = {
+      #   success_symbol = "[➜](bold green)";
+      #   error_symbol = "[➜](bold red)";
+      # };
+
+      # package.disabled = true;
+    };
+  };
+
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
@@ -62,10 +77,10 @@
 
       exec-once = ["waybar"];
 
-        input = {
-      kb_layout="eu,de";
-      kb_options="grp:caps_toggle";
-        };
+      input = {
+        kb_layout = "eu,de";
+        kb_options = "grp:caps_toggle";
+      };
 
       bind = [
         "$mainMod, V, exec, rofi -show drun"
@@ -130,23 +145,6 @@
       ];
     };
   };
-
-{
-  programs.starship = {
-    enable = true;
-    # Configuration written to ~/.config/starship.toml
-    settings = {
-      # add_newline = false;
-
-      # character = {
-      #   success_symbol = "[➜](bold green)";
-      #   error_symbol = "[➜](bold red)";
-      # };
-
-      # package.disabled = true;
-    };
-  };
-}
 
   home.stateVersion = "23.11";
 
