@@ -80,21 +80,28 @@
   };
 
   programs.firefox = {
-
     enable = true;
     profiles.mfm = {
       search.engines = {
         "Nix Packages" = {
-          urls = [{
-            template = "https://search.nixos.org/packages";
-            params = [
-              { name = "type"; value = "packages"; }
-              { name = "query"; value = "{searchTerms}"; }
-            ];
-          }];
+          urls = [
+            {
+              template = "https://search.nixos.org/packages";
+              params = [
+                {
+                  name = "type";
+                  value = "packages";
+                }
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
 
           icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = [ "@np" ];
+          definedAliases = ["@np"];
         };
       };
       search.force = true;
@@ -102,7 +109,7 @@
       bookmarks = [
         {
           name = "wikipedia";
-          tags = [ "wiki" ];
+          tags = ["wiki"];
           keyword = "wiki";
           url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
         }
@@ -114,9 +121,7 @@
         youtube-shorts-block
         dashlane
       ];
-
     };
-    
   };
 
   # Shell History Management
