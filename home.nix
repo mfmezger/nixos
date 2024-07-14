@@ -70,7 +70,7 @@
       ls = "eza -lah";
       l = "eza -lah";
       cat = "bat";
-      # cd = "z";
+      cd = "z";
     };
 
     history = {
@@ -81,11 +81,11 @@
     ];
 
     initExtra = "source ~/.p10k.zsh"
-
+programs.zoxide.enable = true;
   };
-  programs.atuin = {
-    enable = true;
-  };
+  # programs.atuin = {
+  #   enable = true;
+  # };
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
