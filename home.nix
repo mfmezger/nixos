@@ -50,9 +50,9 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "zsh-autosuggestions" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang"];
+      plugins = ["git" "zsh-autosuggestions" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang"];
       # theme = "robbyrussell";
-  };
+    };
 
     shellAliases = {
       # GIT
@@ -75,18 +75,23 @@
       size = 30000;
     };
 
-    plugins = [{name = "powerlevel10k";src = pkgs.zsh-powerlevel10k;file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";}
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
     ];
 
-    initExtra = "source ~/.p10k.zsh"
+    initExtra = "source ~/.p10k.zsh";
   };
 
-  # programs.zoxide = {
-  #   enable = true;
-  # };
-  # programs.atuin = {
-  #   enable = true;
-  # };
+  programs.zoxide = {
+    enable = true;
+  };
+  programs.atuin = {
+    enable = true;
+  };
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
