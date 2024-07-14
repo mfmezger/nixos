@@ -11,6 +11,11 @@
     #    #inputs.hyprland.follow = "hyprland";
     # };
 
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # home-manager, used for managing user configuration
 
     home-manager = {
@@ -21,11 +26,6 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
-
-  firefox-addons = {
-    url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
