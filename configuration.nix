@@ -96,7 +96,7 @@
       atuin
       btop
       oh-my-zsh
-      pkgs.zoxide
+      zoxide
       zenith
       gh
       #obsidian
