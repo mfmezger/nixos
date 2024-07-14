@@ -27,23 +27,33 @@
     userEmail = "marc.mezger@gmail.com";
   };
 
-  programs.starship = {
-    enable = true;
-    # Configuration written to ~/.config/starship.toml
-    settings = {
-      add_newline = false;
+  # programs.starship = {
+  #   enable = true;
+  #   # Configuration written to ~/.config/starship.toml
+  #   settings = {
+  #     add_newline = false;
 
-      # character = {
-      #   success_symbol = "[➜](bold green)";
-      #   error_symbol = "[➜](bold red)";
-      # };
+  #     # character = {
+  #     #   success_symbol = "[➜](bold green)";
+  #     #   error_symbol = "[➜](bold red)";
+  #     # };
 
-      # package.disabled = true;
-    };
-  };
+  #     # package.disabled = true;
+  #   };
+  # };
 
   programs.zsh = {
     enable = true;
+      enableCompletion = true;
+  autosuggestion.enable = true;
+  syntaxHighlighting.enable = true;
+
+    oh-my-zsh = {
+    enable = true;
+    plugins = [ "git" "zsh-autosuggestions" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang"];
+    # theme = "robbyrussell";
+  };
+
     shellAliases = {
       ll = "ls -l";
 
@@ -60,11 +70,18 @@
       ls = "eza -lah";
       l = "eza -lah";
       cat = "bat";
-      cd = "z";
+      # cd = "z";
     };
+
     history = {
       size = 30000;
     };
+
+    plugins = [{name = "powerlevel10k";src = pkgs.zsh-powerlevel10k;file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";}
+    ];
+
+    initExtra = "source ~/.p10k.zsh"
+
   };
   programs.atuin = {
     enable = true;
