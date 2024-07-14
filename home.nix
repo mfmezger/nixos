@@ -66,7 +66,7 @@
       }
     ];
 
-    initExtra = "source ~/.p10k.zsh";
+    initExtra = "source .p10k.zsh";
   };
 
   programs.zoxide = {
