@@ -75,7 +75,6 @@
     pulse.enable = true;
   };
 
-
   fonts.fontconfig.enable = true;
 
   # USER ACCOUNT

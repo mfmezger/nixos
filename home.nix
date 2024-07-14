@@ -75,9 +75,6 @@
         "$mainMod, M, exit,"
         "$mainMod, E, exec, files"
         "$mainMod, F, fullscreen,"
-        "$mainMod, D, exec, rofi-wayland"
-        "$mainMod, P, pseudo, # dwindle"
-        "$mainMod, J, togglesplit, # dwindle"
 
         # Move focus with mainMod + arrow keys
         "$mainMod, left,  movefocus, l"
@@ -133,6 +130,23 @@
       ];
     };
   };
+
+{
+  programs.starship = {
+    enable = true;
+    # Configuration written to ~/.config/starship.toml
+    settings = {
+      # add_newline = false;
+
+      # character = {
+      #   success_symbol = "[➜](bold green)";
+      #   error_symbol = "[➜](bold red)";
+      # };
+
+      # package.disabled = true;
+    };
+  };
+}
 
   home.stateVersion = "23.11";
 
