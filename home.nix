@@ -42,6 +42,32 @@
     };
   };
 
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      ll = "ls -l";
+
+      # GIT
+      ghcs="gh copilot suggest";
+      gs="git status";
+      gg="git add . && git commit -m";
+      gp="git push";
+
+      # NIX
+      update = "sudo nixos-rebuild switch";
+      
+      # EZA is a custom alias for ls -lah
+      alias ls="eza -lah";
+      l="eza -lah";
+      cat="bat";
+      cd="z";
+  };
+    history = {
+    size = 30000;};
+  };
+  programs.atuin = {
+    enable = true;
+  };
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;

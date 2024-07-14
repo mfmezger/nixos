@@ -96,6 +96,7 @@
       atuin
       btop
       oh-my-zsh
+      pkgs.zoxide
       zenith
       gh
       #obsidian
@@ -118,7 +119,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    # i3
     egl-wayland
     home-manager
     pkgs.dunst
