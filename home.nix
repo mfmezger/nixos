@@ -87,9 +87,11 @@
   programs.zoxide = {
     enable = true;
   };
-  # programs.atuin = {
-  #   enable = true;
-  # };
+
+  # Shell History Management
+  programs.atuin = {
+    enable = true;
+  };
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
