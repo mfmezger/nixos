@@ -33,7 +33,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "zsh-autosuggestions" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang"];
+      plugins = ["git" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang"]; # "zsh-autosuggestions"
       # theme = "robbyrussell";
     };
 
