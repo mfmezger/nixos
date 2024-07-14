@@ -79,11 +79,10 @@
     ];
 
     initExtra = "source ~/.p10k.zsh"
-  
   };
 
   programs.zoxide = {
-  enable = true;
+    enable = true;
   };
   # programs.atuin = {
   #   enable = true;
