@@ -1,6 +1,6 @@
 {
   config,
-  pkgs, inputs
+  pkgs, inputs,
   ...
 }: {
   home.username = "mfm";
