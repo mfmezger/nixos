@@ -44,19 +44,17 @@
 
   programs.zsh = {
     enable = true;
-      enableCompletion = true;
-  autosuggestion.enable = true;
-  syntaxHighlighting.enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
 
     oh-my-zsh = {
-    enable = true;
-    plugins = [ "git" "zsh-autosuggestions" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang"];
-    # theme = "robbyrussell";
+      enable = true;
+      plugins = [ "git" "zsh-autosuggestions" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang"];
+      # theme = "robbyrussell";
   };
 
     shellAliases = {
-      ll = "ls -l";
-
       # GIT
       ghcs = "gh copilot suggest";
       gs = "git status";
@@ -81,7 +79,11 @@
     ];
 
     initExtra = "source ~/.p10k.zsh"
-programs.zoxide.enable = true;
+  
+  };
+
+  programs.zoxide = {
+  enable = true;
   };
   # programs.atuin = {
   #   enable = true;
