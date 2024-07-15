@@ -120,6 +120,7 @@
         tridactyl
         youtube-shorts-block
         dashlane
+onetab
       ];
     };
   };
