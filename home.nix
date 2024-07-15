@@ -1,6 +1,7 @@
 {
   config,
-  pkgs, inputs,
+  pkgs,
+  inputs,
   ...
 }: {
   home.username = "mfm";
@@ -112,6 +113,12 @@
           tags = ["wiki"];
           keyword = "wiki";
           url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
+        }
+        {
+          name = "NixOS";
+          tags = ["nix"];
+          keyword = "nixpackages";
+          url = "https://search.nixos.org/packages";
         }
       ];
 
