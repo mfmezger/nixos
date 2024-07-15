@@ -152,6 +152,7 @@
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;
+    font = "Cascadia Code";
   };
 
   wayland.windowManager.hyprland = {
