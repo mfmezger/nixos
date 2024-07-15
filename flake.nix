@@ -31,7 +31,6 @@
   outputs = inputs @ {
     nixpkgs,
     home-manager,
-
     ...
   }: {
     nixosConfigurations = {

@@ -122,17 +122,17 @@
   #       }
   #     ];
 
-      # extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-      #   ublock-origin
-      #   tridactyl
-      #   youtube-shorts-block
-      #   dashlane
-    #       i-dont-care-about-cookies
-    # languagetool
-    # link-cleaner
-    # onetab
-    # privacy-badger
-      # ];
+  # extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+  #   ublock-origin
+  #   tridactyl
+  #   youtube-shorts-block
+  #   dashlane
+  #       i-dont-care-about-cookies
+  # languagetool
+  # link-cleaner
+  # onetab
+  # privacy-badger
+  # ];
   #   };
   # };
 
@@ -149,6 +149,11 @@
   programs.waybar = {
     enable = true;
   };
+  programs.kitty = {
+    enable = true;
+    package = pkgs.kitty;
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
