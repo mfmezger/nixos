@@ -1,4 +1,4 @@
-alejandra .
+alejandra -q . 
 echo "Formatting done."
 
 # Rebuild, output simplified errors, log trackebacks
