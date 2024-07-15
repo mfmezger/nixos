@@ -122,12 +122,12 @@
         }
       ];
 
-      extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-        ublock-origin
-        tridactyl
-        youtube-shorts-block
-        dashlane
-      ];
+      # extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+      #   ublock-origin
+      #   tridactyl
+      #   youtube-shorts-block
+      #   dashlane
+      # ];
     };
   };
 
