@@ -153,6 +153,9 @@
     enable = true;
     package = pkgs.kitty;
     font.name = "Cascadia Code";
+    keybindings = {
+      "super+c" = "copy";
+    };
   };
 
   wayland.windowManager.hyprland = {
