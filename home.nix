@@ -80,67 +80,67 @@
     enable = true;
   };
 
-  programs.firefox = {
-    enable = true;
-    profiles.mfm = {
-      search.engines = {
-        "Nix Packages" = {
-          urls = [
-            {
-              template = "https://search.nixos.org/packages";
-              params = [
-                {
-                  name = "type";
-                  value = "packages";
-                }
-                {
-                  name = "query";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
+  # programs.firefox = {
+  #   enable = true;
+  #   profiles.mfm = {
+  #     search.engines = {
+  #       "Nix Packages" = {
+  #         urls = [
+  #           {
+  #             template = "https://search.nixos.org/packages";
+  #             params = [
+  #               {
+  #                 name = "type";
+  #                 value = "packages";
+  #               }
+  #               {
+  #                 name = "query";
+  #                 value = "{searchTerms}";
+  #               }
+  #             ];
+  #           }
+  #         ];
 
-          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = ["@np"];
-        };
-      };
-      search.force = true;
+  #         icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+  #         definedAliases = ["@np"];
+  #       };
+  #     };
+  #     search.force = true;
 
-      bookmarks = [
-        {
-          name = "wikipedia";
-          tags = ["wiki"];
-          keyword = "wiki";
-          url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
-        }
-        {
-          name = "NixOS";
-          tags = ["nix"];
-          keyword = "nixpackages";
-          url = "https://search.nixos.org/packages";
-        }
-        {
-          name = "NixBook";
-          tags = ["nix"];
-          keyword = "nixpackages";
-          url = "https://nixos-and-flakes.thiscute.world";
-        }
-      ];
+  #     bookmarks = [
+  #       {
+  #         name = "wikipedia";
+  #         tags = ["wiki"];
+  #         keyword = "wiki";
+  #         url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
+  #       }
+  #       {
+  #         name = "NixOS";
+  #         tags = ["nix"];
+  #         keyword = "nixpackages";
+  #         url = "https://search.nixos.org/packages";
+  #       }
+  #       {
+  #         name = "NixBook";
+  #         tags = ["nix"];
+  #         keyword = "nixpackages";
+  #         url = "https://nixos-and-flakes.thiscute.world";
+  #       }
+  #     ];
 
-      extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-        ublock-origin
-        tridactyl
-        youtube-shorts-block
-        dashlane
-        i-dont-care-about-cookies
-        languagetool
-        link-cleaner
-        onetab
-        privacy-badger
-      ];
-    };
-  };
+  #     extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+  #       ublock-origin
+  #       tridactyl
+  #       youtube-shorts-block
+  #       dashlane
+  #       i-dont-care-about-cookies
+  #       languagetool
+  #       link-cleaner
+  #       onetab
+  #       privacy-badger
+  #     ];
+  #   };
+  # };
 
   # Shell History Management
   programs.atuin = {
