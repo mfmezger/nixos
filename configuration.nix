@@ -144,7 +144,7 @@
 
   hardware = {
     #Opengl
-    opengl.enable = true;
+    graphics.enable = true;
   };
 
   system.stateVersion = "24.05";
