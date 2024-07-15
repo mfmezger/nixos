@@ -53,6 +53,10 @@
       l = "eza -lah";
       cat = "bat";
       cd = "z";
+
+      # shutdown and reboot
+      rs = "sudo reboot";
+      s = "shutdown -h now";
     };
 
     history = {
