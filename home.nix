@@ -163,7 +163,18 @@
       "super+c" = "copy";
     };
   };
-
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = [
+        "~/nixos/wallpapers/1.jpg"
+      ];
+      # wallpaper = [
+      #   "DP-1,~/nixos/images/.jpg"
+      #   "DP-3,~/Pictures/walpapers/wallpaper.jpg"
+      # ];
+    };
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
