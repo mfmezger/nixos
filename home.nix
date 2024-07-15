@@ -130,6 +130,7 @@
     #       i-dont-care-about-cookies
     # languagetool
     # link-cleaner
+    # onetab
     # privacy-badger
       # ];
   #   };
