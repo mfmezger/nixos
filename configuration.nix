@@ -126,7 +126,7 @@
     firefox-wayland
     rofi-wayland
     libnotify
-    swww
+    inputs.swww.packages.${pkgs.system}.swww
   ];
   programs.hyprland = {
     enable = true;
