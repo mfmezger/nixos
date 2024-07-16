@@ -72,7 +72,7 @@
     # ];
 
     initExtraFirst = "source ~/.p10k.zsh";
-    zsh.plugins = [
+    plugins = [
       {
         name = "powerlevel10k";
         src = pkgs.zsh-powerlevel10k;
