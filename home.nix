@@ -44,6 +44,8 @@
       gs = "git status";
       gg = "git add . && git commit -m";
       gp = "git push";
+      gcb = "git checkout -b";
+      gc = "git checkout";
 
       # NIX
       update = "sudo nixos-rebuild switch";
@@ -71,7 +73,7 @@
     #   }
     # ];
 
-    initExtra = "source ~/.p10k.zsh";
+    initExtra = "source ~/nixos/.config/zsh/.p10k.zsh";
     plugins = [
       {
         name = "powerlevel10k";
