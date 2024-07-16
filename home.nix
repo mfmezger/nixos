@@ -71,7 +71,7 @@
     #   }
     # ];
 
-    initExtraFirst = "source ~/.p10k.zsh";
+    initExtra = "source ~/.p10k.zsh";
     plugins = [
       {
         name = "powerlevel10k";
