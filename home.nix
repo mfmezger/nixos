@@ -63,15 +63,22 @@
       size = 30000;
     };
 
-    plugins = [
+    # plugins = [
+    #   {
+    #     name = "powerlevel10k";
+    #     src = pkgs.zsh-powerlevel10k;
+    #     file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    #   }
+    # ];
+
+    programs.zsh.initExtraFirst = "source ~/.p10k.zsh";
+    programs.zsh.plugins = [
       {
         name = "powerlevel10k";
         src = pkgs.zsh-powerlevel10k;
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
     ];
-
-    dotDir = ".config/zsh";
   };
 
   programs.zoxide = {
