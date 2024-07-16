@@ -191,8 +191,6 @@
     #
     settings = {
       "$mainMod" = "SUPER";
-      #monitor = "DP-1,2560x1440@144,auto,1";
-      #monitor="HDMI-1, 1920x1080, 2560x0, 1";
       decoration = {
         rounding = 10;
 
