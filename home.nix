@@ -65,15 +65,6 @@
       size = 30000;
     };
 
-    # plugins = [
-    #   {
-    #     name = "powerlevel10k";
-    #     src = pkgs.zsh-powerlevel10k;
-    #     file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    #   }
-    # ];
-
-    initExtra = "source ~/nixos/.config/zsh/.p10k.zsh";
     plugins = [
       {
         name = "powerlevel10k";
@@ -81,6 +72,14 @@
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
     ];
+
+    # initExtra = "source .p10k.zsh";
+    dotDir = ".config/zsh";
+    initExtra = ''
+      # Powerlevel10k Zsh theme
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      test -f ~/.config/zsh/.p10k.zsh && source ~/.config/zsh/.p10k.zsh
+    '';
   };
 
   programs.zoxide = {
