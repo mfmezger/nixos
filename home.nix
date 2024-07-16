@@ -222,6 +222,7 @@
         "$mainMod, M, exit,"
         "$mainMod, E, exec, files"
         "$mainMod, F, fullscreen,"
+        "$mainMod, L, exec, swaylock -I ~/nixos/wallpapers/1.png,"
 
         # Move focus with mainMod + arrow keys
         "$mainMod, left,  movefocus, l"
