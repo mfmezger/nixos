@@ -31,11 +31,11 @@
     enable = true;
     enableCompletion = true;
 
-    # oh-my-zsh = {
-    #   enable = true;
-    #   plugins = ["git" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang"]; # "zsh-autosuggestions"
-    #   theme = "powerlevel10k/powerlevel10k";
-    # };
+    oh-my-zsh = {
+      enable = true;
+      plugins = ["git" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang"]; # "zsh-autosuggestions"
+      theme = "powerlevel10k/powerlevel10k";
+    };
 
     shellAliases = {
       # GIT
@@ -47,7 +47,7 @@
       gc = "git checkout";
 
       # NIX
-      update = "sudo nixos-rebuild switch";
+      update = "sudo nixos-rebuild switch --flake .  --show-trace --verbose";
 
       # EZA is a custom alias for ls -lah
       ls = "eza -lah";
@@ -72,7 +72,7 @@
       }
       {
         name = "powerlevel10k-config";
-        src = ./p10k-config;
+        src = /p10k-config;
         file = "p10k.zsh";
       }
     ];
