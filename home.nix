@@ -31,11 +31,11 @@
     enable = true;
     enableCompletion = true;
 
-    oh-my-zsh = {
-      enable = true;
-      plugins = ["git" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang"]; # "zsh-autosuggestions"
-      theme = "powerlevel10k/powerlevel10k";
-    };
+    # oh-my-zsh = {
+    #   enable = true;
+    #   plugins = ["git" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang"]; # "zsh-autosuggestions"
+    #   theme = "powerlevel10k/powerlevel10k";
+    # };
 
     shellAliases = {
       # GIT
