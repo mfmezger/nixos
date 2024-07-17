@@ -112,7 +112,7 @@
       zoxide
       zenith
       gh
-      #obsidian
+      obsidian
       neovim
       pyenv
       shotcut

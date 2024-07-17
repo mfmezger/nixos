@@ -17,9 +17,16 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    wofi
+    docker
+    docker-compose
+    lazydocker
   ];
-
+  # docker = {
+  #   enable = true;
+  #   enableOnBoot = false;
+  #   # storageDriver = storageDriver;
+  #   autoPrune.enable = true;
+  # };
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
@@ -47,7 +54,7 @@
       gc = "git checkout";
 
       # NIX
-      update = "sudo nixos-rebuild switch --flake .  --show-trace --verbose";
+      update = "sudo nix flake update && sudo nixos-rebuild switch --flake .  --show-trace --verbose";
 
       # EZA is a custom alias for ls -lah
       ls = "eza -lah";
