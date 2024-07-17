@@ -17,6 +17,7 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    emacsPackages.pbcopy
     docker
     docker-compose
     lazydocker
