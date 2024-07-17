@@ -206,7 +206,7 @@
         "col.shadow" = "rgba(1a1a1aee)";
       };
 
-      exec-once = ["waybar"];
+      exec-once = ["waybar" "hyprpaper"];
 
       input = {
         kb_layout = "eu,de";
