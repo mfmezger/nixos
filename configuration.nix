@@ -69,6 +69,11 @@
     xkb.variant = "";
   };
 
+
+  programs.steam = {
+    enable = true;
+  };
+  }
   # Configure console keymap
   #console.keyMap = "eu";
 
