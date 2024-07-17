@@ -8,6 +8,16 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
+  nix.optimise.automatic = true;
+  # EXPERIMENTAL FEATURES
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  # Garbage collection settings. https://nixos.wiki/wiki/Storage_optimization
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 15d";
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -110,9 +120,6 @@
       (nerdfonts.override {fonts = ["CascadiaCode" "CascadiaMono"];})
     ];
   };
-
-  # EXPERIMENTAL FEATURES
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   programs.zsh.enable = true;
   nixpkgs.config.allowUnfree = true;
