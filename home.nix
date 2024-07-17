@@ -78,7 +78,7 @@
     ];
 
     # initExtra = "source .p10k.zsh";
-    dotDir = ".config/zsh";
+    # dotDir = ".config/zsh";
     # initExtra = ''
     #   # Powerlevel10k Zsh theme
     #   source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
