@@ -21,6 +21,7 @@
     docker
     docker-compose
     lazydocker
+    wev
   ];
   # docker = {
   #   enable = true;
@@ -34,6 +35,7 @@
     userName = "Marc Fabian Mezger";
     userEmail = "marc.mezger@gmail.com";
   };
+  
 
   programs.zsh = {
     enable = true;
@@ -42,7 +44,6 @@
     oh-my-zsh = {
       enable = true;
       plugins = ["git" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang"]; # "zsh-autosuggestions"
-      # theme = "powerlevel10k/powerlevel10k";
     };
 
     shellAliases = {
@@ -94,72 +95,11 @@
     enable = true;
   };
 
-  # programs.firefox = {
-  #   enable = true;
-  #   profiles.mfm = {
-  #     search.engines = {
-  #       "Nix Packages" = {
-  #         urls = [
-  #           {
-  #             template = "https://search.nixos.org/packages";
-  #             params = [
-  #               {
-  #                 name = "type";
-  #                 value = "packages";
-  #               }
-  #               {
-  #                 name = "query";
-  #                 value = "{searchTerms}";
-  #               }
-  #             ];
-  #           }
-  #         ];
-
-  #         icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-  #         definedAliases = ["@np"];
-  #       };
-  #     };
-  #     search.force = true;
-
-  #     bookmarks = [
-  #       {
-  #         name = "wikipedia";
-  #         tags = ["wiki"];
-  #         keyword = "wiki";
-  #         url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
-  #       }
-  #       {
-  #         name = "NixOS";
-  #         tags = ["nix"];
-  #         keyword = "nixpackages";
-  #         url = "https://search.nixos.org/packages";
-  #       }
-  #       {
-  #         name = "NixBook";
-  #         tags = ["nix"];
-  #         keyword = "nixpackages";
-  #         url = "https://nixos-and-flakes.thiscute.world";
-  #       }
-  #     ];
-
-  #     extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-  #       ublock-origin
-  #       tridactyl
-  #       youtube-shorts-block
-  #       dashlane
-  #       i-dont-care-about-cookies
-  #       languagetool
-  #       link-cleaner
-  #       onetab
-  #       privacy-badger
-  #     ];
-  #   };
-  # };
-
   # Shell History Management
   programs.atuin = {
     enable = true;
   };
+
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
@@ -169,6 +109,7 @@
   programs.waybar = {
     enable = true;
   };
+
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;
@@ -177,22 +118,20 @@
       "super+c" = "copy";
     };
   };
+
   services.hyprpaper = {
     enable = true;
     settings = {
       preload = [
         "~/nixos/wallpapers/1.jpg"
       ];
-      # wallpaper = [
-      #   "DP-1,~/nixos/images/.jpg"
-      #   "DP-3,~/Pictures/walpapers/wallpaper.jpg"
-      # ];
     };
   };
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    #
+    
     settings = {
       "$mainMod" = "SUPER";
       decoration = {
@@ -235,10 +174,10 @@
         "$mainMod, down,  movefocus, d"
 
         # Moving windows
-        "$mainMod SHIFT, left,  swapwindow, l"
-        "$mainMod SHIFT, right, swapwindow, r"
-        "$mainMod SHIFT, up,    swapwindow, u"
-        "$mainMod SHIFT, down,  swapwindow, d"
+        "$mainMod SHIFT, left,  movewindow, l"
+        "$mainMod SHIFT, right, movewindow, r"
+        "$mainMod SHIFT, up,    movewindow, u"
+        "$mainMod SHIFT, down,  movewindow, d"
 
         # Window resizing                     X  Y
         "$mainMod CTRL, left,  resizeactive, -60 0"
@@ -273,12 +212,11 @@
         # Volume and Media Control
         ", XF86AudioRaiseVolume, exec, pamixer -i 5 "
         ", XF86AudioLowerVolume, exec, pamixer -d 5 "
+        ", F5, exec, pamixer -d 3 "
+        ", F6, exec, pamixer -i 3 "
         ", XF86AudioMute, exec, pamixer -t"
         ", XF86AudioMicMute, exec, pamixer --default-source -m"
 
-        # Waybar
-        "$mainMod, B, exec, pkill -SIGUSR1 waybar"
-        "$mainMod, W, exec, pkill -SIGUSR2 waybar"
       ];
     };
   };

@@ -24,8 +24,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -69,11 +67,10 @@
     xkb.variant = "";
   };
 
+
   programs.steam = {
     enable = true;
   };
-  # Configure console keymap
-  #console.keyMap = "eu";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -119,6 +116,7 @@
       htop
       vscode
       alejandra
+      pamixer
       ollama
       (nerdfonts.override {fonts = ["CascadiaCode" "CascadiaMono"];})
     ];
@@ -136,13 +134,11 @@
     firefox-wayland
     rofi-wayland
     libnotify
-    # inputs.swww.packages.${pkgs.system}.swww
   ];
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
-  #programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
   environment.sessionVariables = {
     #If your cursor becomes invisible
