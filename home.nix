@@ -35,7 +35,6 @@
     userName = "Marc Fabian Mezger";
     userEmail = "marc.mezger@gmail.com";
   };
-  
 
   programs.zsh = {
     enable = true;
@@ -131,9 +130,13 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    
+
     settings = {
       "$mainMod" = "SUPER";
+      monitor = [
+        "DP-1,2560x1440@144,auto,1"
+        "HDMI-1, 1920x1080, 2560x0, 1"
+      ];
       decoration = {
         rounding = 10;
 
@@ -216,7 +219,6 @@
         ", F6, exec, pamixer -i 3 "
         ", XF86AudioMute, exec, pamixer -t"
         ", XF86AudioMicMute, exec, pamixer --default-source -m"
-
       ];
     };
   };

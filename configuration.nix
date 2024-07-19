@@ -67,7 +67,6 @@
     xkb.variant = "";
   };
 
-
   programs.steam = {
     enable = true;
   };
