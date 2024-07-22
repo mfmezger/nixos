@@ -74,7 +74,24 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.displayManager.sddm.wayland.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
+services.displayManager.sddm = {
+    enable = true; # Enable SDDM.
+    sugarCandyNix = {
+        enable = true; # This set SDDM's theme to "sddm-sugar-candy-nix".
+        settings = {
+          # Set your configuration options here.
+          # Here is a simple example:
+          Background = lib.cleanSource ./wallpapers/1.png.png;
+          # ScreenWidth = 1920;
+          # ScreenHeight = 1080;
+          FormPosition = "left";
+          HaveFormBackground = true;
+          PartialBlur = true;
+        };
+      };
+    };
+  };
+
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;

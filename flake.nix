@@ -10,6 +10,11 @@
     #    url = "github:hyperwm/hyprland-plugins";
     #    #inputs.hyprland.follow = "hyprland";
     # };
+  sddm-sugar-candy-nix = {
+    url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
+    # Optional, by default this flake follows nixpkgs-unstable.
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -30,7 +35,7 @@
 
   outputs = inputs @ {
     nixpkgs,
-    home-manager,
+    home-manager,, sddm-sugar-cany-nix
     ...
   }: {
     nixosConfigurations = {
@@ -38,6 +43,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
+sddm-sugar-candy-nix.nixosModules.default
 
           home-manager.nixosModules.home-manager
           {
