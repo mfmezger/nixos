@@ -73,6 +73,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
