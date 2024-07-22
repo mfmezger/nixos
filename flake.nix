@@ -35,7 +35,7 @@
 
   outputs = inputs @ {
     nixpkgs,
-    home-manager,, sddm-sugar-cany-nix
+    home-manager, sddm-sugar-cany-nix
     ...
   }: {
     nixosConfigurations = {
