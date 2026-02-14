@@ -22,7 +22,14 @@
     docker-compose
     lazydocker
     wev
+    uv
+    commitizen
   ];
+
+  programs.fzf = {
+    enable = true;
+    defaultOptions = ["--height" "40%" "--border" "--preview"];
+  };
   # docker = {
   #   enable = true;
   #   enableOnBoot = false;
@@ -42,8 +49,17 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang"]; # "zsh-autosuggestions"
+      plugins = ["git" "docker" "docker-compose" "zoxide" "poetry" "colorize" "gh" "golang" "git-hubflow" "ssh" "ssh-agent" "pre-commit" "eza" "sudo" "history" "rsync"];
     };
+
+    initExtra = ''
+      # Source zsh-abbr abbreviations setup
+      if [[ -f ~/nixos/scripts/setup-abbreviations.sh ]]; then
+        source ~/nixos/scripts/setup-abbreviations.sh
+      else
+        source ${pkgs.zsh-abbr}/share/zsh-abbr/zsh-abbr.zsh
+      fi
+    '';
 
     shellAliases = {
       # GIT
@@ -62,6 +78,9 @@
       l = "eza -lah";
       cat = "bat";
       cd = "z";
+
+      # FZF
+      ff = "fzf";
 
       # shutdown and reboot
       rs = "sudo reboot";
@@ -84,6 +103,9 @@
         src = ./p10k-config;
       }
     ];
+
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
   };
 
   programs.zoxide = {
@@ -109,13 +131,24 @@
     enable = true;
   };
 
-  programs.kitty = {
+  programs.ghostty = {
     enable = true;
-    package = pkgs.kitty;
-    font.name = "Cascadia Code";
-    keybindings = {
-      "super+c" = "copy";
+    package = pkgs.ghostty;
+    settings = {
+      font-family = ["Cascadia Code"];
+      font-size = 14;
+      theme = "catppuccin";
     };
+  };
+
+  services.mako = {
+    enable = true;
+    font = "Cascadia Code 10";
+    defaultTimeout = 5000;
+    backgroundColor = "#28143c";
+    textColor = "#ffffff";
+    borderColor = "#7f3fbf";
+    progressColor = "#95e6cb";
   };
 
   services.hyprpaper = {
@@ -165,7 +198,7 @@
       bind = [
         "$mainMod, V, exec, rofi -show drun"
 
-        "$mainMod, Return, exec, kitty"
+        "$mainMod, Return, exec, ghostty"
         "$mainMod, Q, killactive,"
         "$mainMod, M, exit,"
         "$mainMod, E, exec, files"

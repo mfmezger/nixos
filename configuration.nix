@@ -136,6 +136,29 @@ services.displayManager.sddm = {
       pamixer
       ollama
       (nerdfonts.override {fonts = ["CascadiaCode" "CascadiaMono"];})
+      kubectl
+      helm
+      k9s
+      git-delta
+      tokei
+      fd
+      dust
+      tree
+      jq
+      glow
+      chroma
+      witr
+      grim
+      slurp
+      wl-clipboard
+      ghostty
+      walker
+      zsh-abbr
+      zsh-autosuggestions
+      zsh-syntax-highlighting
+      zsh-powerlevel10k
+      fzf
+      ripgrep
     ];
   };
 
@@ -146,8 +169,7 @@ services.displayManager.sddm = {
     git
     egl-wayland
     home-manager
-    pkgs.dunst
-    kitty
+    pkgs.mako
     firefox-wayland
     rofi-wayland
     libnotify
